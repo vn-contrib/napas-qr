@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -8,4 +9,7 @@ export default defineConfig({
       fileName: 'counter',
     },
   },
+  test: {
+    globals: true
+  }
 })

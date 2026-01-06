@@ -7,3 +7,7 @@ export function setupCounter(element: HTMLButtonElement) {
   element.addEventListener('click', () => setCounter(++counter))
   setCounter(0)
 }
+
+export function sum(a: number, b: number) {
+  return a + b
+}
