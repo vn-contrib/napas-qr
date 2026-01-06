@@ -1,0 +1,16 @@
+import { calculateCRC } from '../lib/utils'
+
+describe("calculateCRC", () => {
+  it.each([
+    {
+      input: "00020101021138480010A00000072701300006970403011621129950446040255204581253037045802VN5910PHUONG CAC6005HANOI62110307NPS68696304",
+      result: 0x5802
+    },
+    {
+      input: "00020101021138580010A00000072701300006970403011621129950446040250206QRPUSH5204581253037045802VN5910PHUONG CAC6005HANOI62110307NPS68696304",
+      result: 0x3820
+    }
+  ])('returns CRC16 checksum', ({ input, result }) => {
+    expect(calculateCRC(input)).toBe(result)
+  })
+})
