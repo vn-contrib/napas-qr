@@ -20,3 +20,22 @@ export function calculateCRC(data: string) {
 
   return crc;
 }
+
+export interface QRData {
+  [id: string]: number | string | this
+}
+
+export function formatData(data: QRData) {
+  let result = ''
+
+  for (const [id, value] of Object.entries(data).sort((a, b) => a[0] > b[0] ? 1 : -1)) {
+    const s = typeof value === 'string'
+      ? value
+      : typeof value === 'number'
+        ? value.toString()
+        : formatData(value)
+    result += (id + s.length.toString().padStart(2, "0") + s)
+  }
+
+  return result
+}
