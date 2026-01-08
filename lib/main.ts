@@ -1,5 +1,7 @@
 import { Method, System, ServiceCode, Currency, CountryCode } from './constants'
-import { calculateCRC, formatData, type QRData } from './utils'
+import { calculateCRC, formatData } from './utils'
+
+export * from './constants'
 
 interface NapasQRProps {
   method?: Method
@@ -13,7 +15,7 @@ interface NapasQRProps {
   description?: string
 }
 
-export function generateValue({
+export function generateCode({
   method = Method.Static,
   system = System.NAPAS,
   serviceCode = ServiceCode.AccountTransfer,
@@ -24,7 +26,7 @@ export function generateValue({
   countryCode = CountryCode.VN,
   description
 }: NapasQRProps) {
-  const data: QRData = {
+  const data = {
     // payload format indicator
     "00": "01",
     // point of initiation method

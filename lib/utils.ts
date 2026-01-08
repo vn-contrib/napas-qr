@@ -21,7 +21,7 @@ export function calculateCRC(data: string) {
   return crc;
 }
 
-export interface QRData {
+interface QRData {
   [id: string]: number | string | this
 }
 

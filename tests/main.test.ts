@@ -1,8 +1,8 @@
 import { Method } from '../lib/constants'
-import { generateValue } from '../lib/main'
+import { generateCode } from '../lib/main'
 
-test('generate QR value', () => {
-  expect(generateValue({
+test('generate QR code', () => {
+  expect(generateCode({
     method: Method.Dynamic,
     bin: "970403",
     account: '0011012345678',
