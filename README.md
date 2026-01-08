@@ -1,2 +1,2 @@
-# napas-qr
-NapasQR generation
+# NapasQR
+NapasQR's value generation
