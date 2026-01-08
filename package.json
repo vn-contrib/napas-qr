@@ -15,12 +15,16 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "test": "vitest"
+    "build": "pnpm run /^build:.*/",
+    "build:lib": "vite build",
+    "build:pages": "vite build --config vite.config.pages.ts",
+    "test": "vitest",
+    "preview": "vite preview --outDir pages"
   },
   "devDependencies": {
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "@vitest/coverage-v8": "^4.0.16",
     "qrcode.react": "^4.2.0",
     "react": "^19.2.3",
