@@ -31,7 +31,10 @@ describe('formatData', () => {
       "53": 704,
       "54": 180000,
       "58": "VN",
-      "62": "0107NPS68690819thanh toan don hang"
+      "62": {
+        "01": "NPS6869",
+        "08": "thanh toan don hang"
+      }
     })).toEqual("00020101021238570010A00000072701270006970403011300110123456780208QRIBFTTA530370454061800005802VN62340107NPS68690819thanh toan don hang")
   })
 })

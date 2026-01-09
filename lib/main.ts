@@ -12,7 +12,8 @@ interface NapasQRProps {
   amount?: number
   currency?: number
   countryCode?: string
-  description?: string
+  purpose?: string
+  bill?: string
 }
 
 export function generateCode({
@@ -24,7 +25,8 @@ export function generateCode({
   amount,
   currency = Currency.VND,
   countryCode = CountryCode.VN,
-  description
+  purpose,
+  bill
 }: NapasQRProps) {
   const data = {
     // payload format indicator
@@ -51,8 +53,15 @@ export function generateCode({
       "54": amount
     }),
     "58": countryCode,
-    ...(description && {
-      "62": description
+    ...((bill || purpose) && {
+      "62": {
+        ...(bill && {
+          "01": bill
+        }),
+        ...(purpose && {
+          "08": purpose
+        })
+      }
     })
   }
   const s = formatData(data) + "6304" // 63(crc) + 04(length) 
