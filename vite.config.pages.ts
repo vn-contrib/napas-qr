@@ -5,6 +5,12 @@ export default defineConfig({
   plugins: [react()],
   base: "./",
   build: {
-    outDir: 'pages'
+    outDir: 'pages',
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        qr: 'qr.html'
+      }
+    }
   }
 })

@@ -1,28 +1,26 @@
-import typescriptLogo from './typescript.svg'
-import { generateCode } from '../lib/main'
-import { QRCodeSVG } from 'qrcode.react'
+const
+  size = 160,
+  bin = '970403',
+  account = '0123456789'
 
 export default function App() {
-  const code = generateCode({
-    bin: '970403',
-    account: '2112995044604025'
-  })
+  const iframeUrl = new URL('qr', location.href).toString()
+  const expIframe = `${iframeUrl}?bin=${bin}&account=${account}&size=${size}`
 
   return (
     <div>
-      <a href="https://vite.dev" target="_blank">
-        <img src="./vite.svg" className="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-        <img src={typescriptLogo} className="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <h1>Vite + TypeScript</h1>
-      <div className="card">
-        <QRCodeSVG value={code} />
-      </div>
+      <h1>NapasQR</h1>
       <p className="read-the-docs">
-        Click on the Vite and TypeScript logos to learn more
+        <code>npm install @vn-contrib/napas-qr</code> to use as a library or <br /> <code>{`<iframe src="${iframeUrl}?{querystring}" />`}</code> to embed in your website
       </p>
+      <div className="card">
+        <p>
+          Example
+          <br />
+          <a href={expIframe} target="_blank">{expIframe}</a>
+        </p>
+        <iframe src={expIframe} width={size} height={size} />
+      </div>
     </div>
   )
 }
