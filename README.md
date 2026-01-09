@@ -20,5 +20,25 @@ function Example() {
 }
 ```
 
+or directly embed via iframe
+```tsx
+// example
+<iframe src="https://vn-contrib.github.io/napas-qr/qr?bin=970403&account=0123456789" />
+
+// query params
+interface QueryParams {
+  bin: string
+  account: string
+  method?: 11 | 12  // Point of Initiation Method, default: 11 (11: static, 12: dynamic)
+  amount?: number
+  purpose?: string
+  bill?: string
+  size?: number  // QR size, default: 128
+}
+```
+
+## Resources
+- [List of banks in NAPAS system](https://vn-contrib.github.io/napas-qr/banks.json)
+
 ## License
 [MIT License](LICENSE)
