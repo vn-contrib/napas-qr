@@ -94,6 +94,10 @@ iframe {
   border: 4px solid white;
 }
 
+.read-example {
+  word-break: break-all;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
