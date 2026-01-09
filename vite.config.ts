@@ -10,6 +10,7 @@ export default defineConfig({
       name: 'NapasQR',
       fileName: 'main',
     },
+    copyPublicDir: false,
   },
   test: {
     globals: true
